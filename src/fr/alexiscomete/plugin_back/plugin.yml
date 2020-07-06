@@ -8,14 +8,14 @@ commands:
     description: permet d'obtenir la distance vers le spawn
     usage: /getSpawnDist
   back:
-    description: retour au point de mort
+    description: retour au point de mort (Attention, non sauvegarde)
     usage: /back
   spawn:
     description: retour au spawn
     usage: /spawn
   setSpawn:
     description: indique le spawn au plugin
-    usage: /setSpawn
+    usage: /setSpawn (facultatif [x] [y] [z])
     permission: op.op
 permissions:
   op.op:

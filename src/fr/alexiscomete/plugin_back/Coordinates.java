@@ -19,6 +19,10 @@ public class Coordinates implements Serializable {
         return Math.sqrt(Math.pow(this.x-x, 2) + Math.pow(this.z-z, 2) + Math.pow(this.y-y, 2));
     }
 
+    public double getDist(Coordinates coos) {
+        return getDist(coos.getX(), coos.getY(), coos.getZ());
+    }
+
     public double getX() {
         return x;
     }
