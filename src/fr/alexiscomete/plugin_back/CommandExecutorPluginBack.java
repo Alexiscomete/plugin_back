@@ -7,9 +7,13 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+
 public class CommandExecutorPluginBack implements CommandExecutor {
 
     public static Coordinates coosSpawn = new Coordinates(0.5, 100.0, 0.5);
+
+    public static ArrayList<PlayerPluginBack> players = new ArrayList<>();
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
@@ -53,7 +57,23 @@ public class CommandExecutorPluginBack implements CommandExecutor {
     }
 
     public void back(CommandSender commandSender) {
-
+        if (commandSender instanceof Player){
+            PlayerPluginBack player = new PlayerPluginBack(commandSender.getName());
+            if (System.currentTimeMillis()-player.getDeathTime() > 10000){
+                if (player.isBack()){
+                    commandSender.sendMessage("Vous avez déjà fait cette commande ! Ceci n'est pas un /home !");
+                }else {
+                    PlayerPluginBack p = players.get(players.indexOf(new PlayerPluginBack(commandSender.getName())));
+                    Coordinates coos = p.getDeathCoos();
+                    ((Player) commandSender).teleport(new Location(p.getW(), coos.getX(), coos.getY(), coos.getZ()));
+                    p.setBack(true);
+                }
+            }else {
+                commandSender.sendMessage("Le cooldown est encore en cours, il reste : " + (10-((System.currentTimeMillis()-player.getDeathTime())/10000)) + " secondes.");
+            }
+        }else {
+            commandSender.sendMessage("Vous devez être un joueur pour utiliser cette commande");
+        }
     }
 
     public void setSpawn(CommandSender commandSender, String[] args) {
