@@ -1,5 +1,6 @@
 package fr.alexiscomete.plugin_back;
 
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -32,7 +33,9 @@ public class CommandExecutorPluginBack implements CommandExecutor {
     public void getSpawnDist(CommandSender commandSender){
         if (commandSender instanceof Player){
             Player player = (Player) commandSender;
-            Coordinates coos = new Coordinates();
+            Location loc = player.getLocation();
+            Coordinates coos = new Coordinates(loc.getX(), loc.getY(), loc.getZ());
+            player.sendMessage("Vous êtes à " + coos.getDist(coosSpawn) + " du spawn !");
         }else{
             commandSender.sendMessage("Impossible d'utiliser cette commande pour vous, vous devez :\n- être un joueur");
         }
