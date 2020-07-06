@@ -1,5 +1,6 @@
 package fr.alexiscomete.plugin_back;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -20,7 +21,7 @@ public class CommandExecutorPluginBack implements CommandExecutor {
                 setSpawn(commandSender, strings);
                 return true;
             case "spawn" :
-                spawn();
+                spawn(commandSender);
                 return true;
             case "back" :
                 back(commandSender);
@@ -41,8 +42,14 @@ public class CommandExecutorPluginBack implements CommandExecutor {
         }
     }
 
-    public void spawn(){
-
+    public void spawn(CommandSender commandSender){
+        if (commandSender instanceof Player){
+            Player player = (Player) commandSender;
+            Location loc = new Location(Bukkit.getWorld("overworld"), coosSpawn.getX(), coosSpawn.getY(), coosSpawn.getZ());
+            player.teleport(loc);
+        }else {
+            commandSender.sendMessage("Vous devez être un joueur pour pouvoir utiliser cette commande !");
+        }
     }
 
     public void back(CommandSender commandSender) {
