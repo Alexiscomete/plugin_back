@@ -50,7 +50,7 @@ public class PlayerPluginBack implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o) { //pour comparer seulement le nom dans les ArrayList
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PlayerPluginBack that = (PlayerPluginBack) o;

@@ -2,7 +2,7 @@ package fr.alexiscomete.plugin_back;
 
 import java.io.Serializable;
 
-public class Coordinates implements Serializable {
+public class Coordinates implements Serializable { //pour la distance te la sauvegarde
 
     private double x = 0, y = 0, z = 0;
 

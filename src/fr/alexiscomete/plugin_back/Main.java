@@ -37,16 +37,19 @@ public class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         System.out.println("[plugin_back] Plugin en cours de sauvegarde");
+        saveSpawn(); //sauvegarde du spawn
+    }
+
+    public static void saveSpawn() {
         try {
             File file = new File("spawn.txt");
-            file.delete();
+            file.delete(); // vide le fichier en le supprimant puis en le recréant.
             file.createNewFile();
             ObjectOutputStream oos = new ObjectOutputStream(
                     new BufferedOutputStream(
-                            new FileOutputStream(
-                                    new File("spawn.txt"))));
-            oos.writeObject(CommandExecutorPluginBack.coosSpawn);
-        } catch (IOException e) {
+                            new FileOutputStream(file))); //la variable pour écrire
+            oos.writeObject(CommandExecutorPluginBack.coosSpawn); //écriture
+        } catch (IOException e) { //en cas d'erreur
             e.printStackTrace();
         }
     }
