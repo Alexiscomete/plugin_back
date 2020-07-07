@@ -1,5 +1,5 @@
 main: fr.alexiscomete.plugin_back.Main
-version: 0.0.0-alpha1
+version: 0.0.0-alpha2
 name: plugin_back
 description: Plugin de back et spawn
 author: Alexiscomete
