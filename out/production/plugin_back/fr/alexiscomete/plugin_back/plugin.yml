@@ -1,0 +1,23 @@
+main: fr.alexiscomete.plugin_back.Main
+version: 0.0.0
+name: plugin_back
+description: Plugin de back et spawn
+author: Alexiscomete
+commands:
+  getSpawnDist:
+    description: permet d'obtenir la distance vers le spawn
+    usage: /getSpawnDist
+  back:
+    description: retour au point de mort (Attention, non sauvegarde)
+    usage: /back
+  spawn:
+    description: retour au spawn
+    usage: /spawn
+  setSpawn:
+    description: indique le spawn au plugin
+    usage: /setSpawn (facultatif [x] [y] [z])
+    permission: op.op
+permissions:
+  op.op:
+    description: permet d'utiliser les commandes admins
+    default: op
