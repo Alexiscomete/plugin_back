@@ -28,6 +28,7 @@ public class Main extends JavaPlugin {
                         new BufferedInputStream(
                                 new FileInputStream(file)));
                 CommandExecutorPluginBack.coosSpawn = (Coordinates) ois.readObject();
+                ois.close();
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
@@ -49,6 +50,7 @@ public class Main extends JavaPlugin {
                     new BufferedOutputStream(
                             new FileOutputStream(file))); //la variable pour écrire
             oos.writeObject(CommandExecutorPluginBack.coosSpawn); //écriture
+            oos.close();
         } catch (IOException e) { //en cas d'erreur
             e.printStackTrace();
         }
