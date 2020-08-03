@@ -4,6 +4,7 @@
     <root id="archive" name="plugin_back.jar">
       <element id="module-output" name="plugin_back" />
       <element id="extracted-dir" path="$PROJECT_DIR$/../../Spigot/spigot-1.16.1.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/fr/alexiscomete/plugin_back/plugin.yml" />
     </root>
   </artifact>
 </component>
